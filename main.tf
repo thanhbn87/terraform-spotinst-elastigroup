@@ -5,7 +5,7 @@ provider "spotinst" {
 }
 
 provider "aws" {
-  region  = "${var.region}"
+  region  = "${var.aws_region}"
   profile = "${var.aws_profile}"
 }
 
@@ -52,7 +52,7 @@ resource "spotinst_elastigroup_aws" "this" {
   name        = "${local.name}"
   description = "${var.desc}"
   product     = "${var.product}"
-  region      = "${var.region}"
+  region      = "${var.aws_region}"
   subnet_ids  = ["${var.subnet_ids}"]
   tags        = "${concat(local.tags,var.tags)}"
 
